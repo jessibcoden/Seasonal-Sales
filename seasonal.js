@@ -102,6 +102,18 @@ function writeToDom (string){
 	productContainer.innerHTML = string;
 }
 
+var dropdown = document.getElementById('dropdownMenu');
+dropdown.addEventListener("click", lowerPrice);
+
+document.body.addEventListener('click', function(event) {
+		if(event.target.className === 'seasonChoice1'){
+		(displaySalePrice1(event.target));}
+		else if(event.target.className === 'seasonChoice2'){
+		displaySalePrice2(event);}
+		else if(event.target.className === 'seasonChoice3'){
+		displaySalePrice3(event);}
+	});
+
 // write discount function
 var salePrice = document.getElementById("sale-container");
 
@@ -117,21 +129,23 @@ document.body.addEventListener('click', function(event) {
 
 function displaySalePrice1 () {
 	for (var i = 0; i < products.length; i ++) {
-	if(products[i].category_id === 1){
-	var discount = products[i].price * 0.10;
-	var salePrice = products[i].price - discount;
-	salePrice = salePrice.toFixed(2);
-	console.log(salePrice);
-}
-// function winterString () {
-// 	var saleString = '';
-// 	saleString +=	`<h3 class="sale">Sale Price:${newPrice}</h3>`;
-
-	addToProduct();	
+		if(products[i].category_id === 1){
+			var discount = products[i].price * 0.10;
+			var salePrice = products[i].price - discount;
+			salePrice = salePrice.toFixed(2);
+		}
+			console.log(salePrice);
+	function winterString () {
+		for (var j = 0; j < products.length; j ++) {
+			if(products[j].category_id === 1){
+			var saleString = '';
+			saleString +=	`<h3 class="sale">Sale Price:${salePrice[j]}</h3>`;
+			}
+			addToProduct(saleString);
+		}
 	}
 }
-
-
+}
 
 function addToProduct (strang){
 	salePrice.innerHTML = strang;
