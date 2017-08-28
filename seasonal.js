@@ -5,8 +5,6 @@ var departments;
 var products;
 var productContainer = document.getElementById("product-container");
 
-
-
 function readProductFile(){
 	console.log("this", this.responseText);//responseText is a property of the element
 	var data = JSON.parse(this.responseText);
@@ -101,18 +99,6 @@ function createDomString (){
 function writeToDom (string){
 	productContainer.innerHTML = string;
 }
-
-var dropdown = document.getElementById('dropdownMenu');
-dropdown.addEventListener("click", lowerPrice);
-
-document.body.addEventListener('click', function(event) {
-		if(event.target.className === 'seasonChoice1'){
-		(displaySalePrice1(event.target));}
-		else if(event.target.className === 'seasonChoice2'){
-		displaySalePrice2(event);}
-		else if(event.target.className === 'seasonChoice3'){
-		displaySalePrice3(event);}
-	});
 
 // write discount function
 var salePrice = document.getElementById("sale-container");
