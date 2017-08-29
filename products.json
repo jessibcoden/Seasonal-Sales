@@ -4,61 +4,71 @@
       "id": 0,
       "name": "Kids socks",
       "price": 4.99,
-      "category_id": 1
+      "category_id": 1,
+      "img": "/img/kSocks.jpg"
     },
     {
       "id": 1,
       "name": "Mens socks",
       "price": 6.99,
-      "category_id": 1
+      "category_id": 1,
+      "img": "/img/mSocks.jpg"
     },
     {
       "id": 2,
       "name": "Ladies socks",
       "price": 7.99,
-      "category_id": 1
+      "category_id": 1,
+      "img": "/img/wSocks.jpg"
     },
     {
       "id": 3,
       "name": "Foot stool",
       "price": 14.99,
-      "category_id": 2
+      "category_id": 2,
+      "img": "/img/footstool.jpg"
     },
     {
       "id": 4,
       "name": "Lava lamp",
       "price": 9.99,
-      "category_id": 2
+      "category_id": 2,
+      "img": "/img/lavalamp.jpg"
     },
     {
       "id": 5,
       "name": "3 drawer dresser",
       "price": 64.99,
-      "category_id": 2
+      "category_id": 2,
+      "img": "/img/dresser.jpg"
     },
     {
       "id": 6,
       "name": "Air filter",
       "price": 6.99,
-      "category_id": 3
+      "category_id": 3,
+      "img": "/img/airfilter.jpg"
     },
     {
       "id": 7,
       "name": "Surge protector",
       "price": 8.99,
-      "category_id": 3
+      "category_id": 3,
+      "img": "/img/surge.jpg"
     },
     {
       "id": 8,
       "name": "Plastic storage bin",
       "price": 3.99,
-      "category_id": 3
+      "category_id": 3,
+      "img": "/img/storage.jpg"
     },
     {
       "id": 9,
       "name": "Light bulb",
       "price": 1.99,
-      "category_id": 3
+      "category_id": 3,
+      "img": "/img/lightbulb.jpg"
     }
   ]
 }
