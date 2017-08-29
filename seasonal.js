@@ -100,10 +100,7 @@ function writeToDom (string){
 	productContainer.innerHTML = string;
 }
 
-// write discount function
-var salePrice = document.getElementById("sale-container");
-
-document.body.addEventListener('click', function(event) {
+document.addEventListener('click', function(event) {
 		if(event.target.className === 'seasonChoice1'){
 		(displaySalePrice1(event.target));}
 		else if(event.target.className === 'seasonChoice2'){
@@ -112,6 +109,19 @@ document.body.addEventListener('click', function(event) {
 		displaySalePrice3(event);}
 	});
 
+// write discount function
+var salePrice = document.getElementById("sale-container");
+
+document.body.addEventListener('click', function(event) {
+	if(event.target.className === 'seasonChoice1'){
+		displaySalePrice1(event);
+			winterString();
+	// }else if(event.target.className === 'seasonChoice2'){
+	// displaySalePrice2(event);
+	// }else if(event.target.className === 'seasonChoice3'){
+	// displaySalePrice3(event);
+	}
+});
 
 function displaySalePrice1 () {
 	for (var i = 0; i < products.length; i ++) {
@@ -120,17 +130,19 @@ function displaySalePrice1 () {
 			var salePrice = products[i].price - discount;
 			salePrice = salePrice.toFixed(2);
 		}
-			console.log(salePrice);
-	function winterString () {
-		for (var j = 0; j < products.length; j ++) {
-			if(products[j].category_id === 1){
-			var saleString = '';
-			saleString +=	`<h3 class="sale">Sale Price:${salePrice[j]}</h3>`;
-			}
-			addToProduct(saleString);
-		}
 	}
 }
+	
+console.log(salePrice);
+
+function winterString () {
+	for (var j = 0; j < products.length; j ++) {
+		if(products[j].category_id === 1){
+		var saleString = '';
+		saleString +=	`<h3 class="sale">Sale Price:${salePrice[j]}</h3>`;
+		}
+		addToProduct(saleString);
+	}
 }
 
 function addToProduct (strang){
