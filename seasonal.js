@@ -120,8 +120,8 @@ document.body.addEventListener('click', function(event) {
 	// displaySalePrice2(event);
 	// }else if(event.target.className === 'seasonChoice3'){
 	// displaySalePrice3(event);
-	// }
-};
+	}
+});
 
 function displaySalePrice1 () {
 	for (var i = 0; i < products.length; i ++) {
