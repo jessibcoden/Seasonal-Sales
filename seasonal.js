@@ -5,15 +5,17 @@ var departments;
 var products;
 var productContainer = document.getElementById("product-container");
 
+
+//****** XHR ******
 function readProductFile(){
-	console.log("this", this.responseText);//responseText is a property of the element
+	// console.log("this", this.responseText);//responseText is a property of the element
 	var data = JSON.parse(this.responseText);
-	console.log(data);
+	// console.log(data);
 	decidewhatDataType(data.products);
 }
 
 function executeErrorMessage(){
-	console.log("Shit Broke");
+	// console.log("Shit Broke");
 }
 
 //'new' is a constructor
@@ -24,9 +26,9 @@ myRequest.open("GET", "products.json");
 myRequest.send();
 
 function readDepartmentsFile(){
-	console.log("this", this.responseText);//responseText is a property of the element
+	// console.log("this", this.responseText);//responseText is a property of the element
 	var data = JSON.parse(this.responseText);
-	console.log(data);
+	// console.log(data);
 	decidewhatDataType(data.categories);
 }
 
@@ -36,7 +38,9 @@ myRequest2.addEventListener("load", readDepartmentsFile);
 myRequest2.addEventListener("error", executeErrorMessage);
 myRequest2.open("GET", "departments.json");
 myRequest2.send();
+//***********
 
+//****** COMBINE ARRAYS ******
 //*** First will need to add correlating information from the categories array in the departments.json file to each product***
 
 //because there are two files there's no way to know which will load first - will need to create function to determine which file loads first using a property of one of the array elements ()
@@ -81,17 +85,18 @@ function addDepartmentToProduct () {
 	createDomString();
 }
 
-//domstring for products
+//****** DOMSTRING FOR PRODUCTS ****** 
 
 function createDomString (){
-	console.log(products);
+	// console.log(products);
 	var domString = '';
 	for (var i = 0; i < products.length; i++){
 		domString += `<section id="productCard">`;
 		domString +=	`<h3 class="department">${products[i].categoryName}</h3>`;
 		domString +=	`<h3 class="name">${products[i].name}</h3>`;
+		domString +=	`<img class="image" src=${products[i].img}>`
 		domString +=	`<h3 class="price">${products[i].price}</h3>`;
-		domString += `</section>`	
+		domString += `</section>`;	
 	}
 	writeToDom(domString);
 }
@@ -99,6 +104,8 @@ function createDomString (){
 function writeToDom (string){
 	productContainer.innerHTML = string;
 }
+
+//****** EVENT LISTENERS FOR RADIO BUTTONS ******
 
 document.addEventListener('click', function(event) {
 		if(event.target.className === 'seasonChoice1'){
@@ -113,6 +120,7 @@ document.addEventListener('click', function(event) {
 var salePrice = document.getElementById("sale-container");
 
 document.body.addEventListener('click', function(event) {
+	console.log(event);
 	if(event.target.className === 'seasonChoice1'){
 		displaySalePrice1(event);
 			winterString();
@@ -123,31 +131,34 @@ document.body.addEventListener('click', function(event) {
 	}
 });
 
-function displaySalePrice1 () {
-	for (var i = 0; i < products.length; i ++) {
-		if(products[i].category_id === 1){
-			var discount = products[i].price * 0.10;
-			var salePrice = products[i].price - discount;
-			salePrice = salePrice.toFixed(2);
-		}
-	}
-}
+// function displaySalePrice1 () {
+// 	for (var i = 0; i < products.length; i ++) {
+// 		if(products[i].category_id === 1){
+// 			products[i].className.add('winter');
+// 			var discount = products[i].price * 0.10;
+// 			var salePrice = products[i].price - discount;
+// 			salePrice = salePrice.toFixed(2);
+
+// 			return salePrice;
+// 		}
+// 	}
+// }
 	
-console.log(salePrice);
+// console.log(salePrice);
 
-function winterString () {
-	for (var j = 0; j < products.length; j ++) {
-		if(products[j].category_id === 1){
-		var saleString = '';
-		saleString +=	`<h3 class="sale">Sale Price:${salePrice[j]}</h3>`;
-		}
-		addToProduct(saleString);
-	}
-}
+// function winterString () {
+// 	for (var j = 0; j < products.length; j ++) {
+// 		if(products[j].category_id === 1){
+// 		var saleString = '';
+// 		saleString +=	`<h3 class="sale">Sale Price:${salePrice[j]}</h3>`;
+// 		}
+// 		addToProduct(saleString);
+// 	}
+// }
 
-function addToProduct (strang){
-	salePrice.innerHTML = strang;
-}
+// function addToProduct (strang){
+// 	salePrice.innerHTML = strang;
+// }
 
 
 
