@@ -96,6 +96,7 @@ function createDomString (){
 		domString +=	`<h3 class="name">${products[i].name}</h3>`;
 		domString +=	`<img class="image" src=${products[i].img}>`
 		domString +=	`<h3 class="price">${products[i].price}</h3>`;
+		domString +=	`<h3 id="sale-price-${products[i].id}"></h3>`;
 		domString += `</section>`;	
 	}
 	writeToDom(domString);
@@ -117,49 +118,65 @@ document.addEventListener('click', function(event) {
 	});
 
 // write discount function
-var salePrice = document.getElementById("sale-container");
 
-document.body.addEventListener('click', function(event) {
-	console.log(event);
-	if(event.target.className === 'seasonChoice1'){
-		displaySalePrice1(event);
-			winterString();
-	// }else if(event.target.className === 'seasonChoice2'){
-	// displaySalePrice2(event);
-	// }else if(event.target.className === 'seasonChoice3'){
-	// displaySalePrice3(event);
+function displaySalePrice1 () {
+	// document.getElementById(`sale-price-${}`).innerHTML = '';
+	for (var i = 0; i < products.length; i ++) {
+		if(products[i].category_id === 1){
+			// products[i].classList.add('winter');
+			var discount = products[i].price * 0.10;
+			var salePrice = products[i].price - discount;
+			salePrice = salePrice.toFixed(2);
+			console.log("sale price", salePrice);
+			addSalePrice(salePrice, products[i].id);
+		}
 	}
-});
+}
 
-// function displaySalePrice1 () {
-// 	for (var i = 0; i < products.length; i ++) {
-// 		if(products[i].category_id === 1){
-// 			products[i].className.add('winter');
-// 			var discount = products[i].price * 0.10;
-// 			var salePrice = products[i].price - discount;
-// 			salePrice = salePrice.toFixed(2);
+var salePrice = '';
 
-// 			return salePrice;
-// 		}
-// 	}
-// }
+function addSalePrice (salePrice, id) {
+	document.getElementById(`sale-price-${id}`).innerHTML = salePrice;
+}
+
+function displaySalePrice2 () {
+	// document.getElementById(`sale-price-${id}`).innerHTML = '';
+	for (var i = 0; i < products.length; i ++) {
+		if(products[i].category_id === 2){
+			// products[i].classList.add('winter');
+			var discount = products[i].price * 0.25;
+			var salePrice = products[i].price - discount;
+			salePrice = salePrice.toFixed(2);
+			console.log("sale price", salePrice);
+			addSalePrice(salePrice, products[i].id);
+		}
+	}
+}
+
+function displaySalePrice3 () {
+	// document.getElementById(`sale-price-${id}`).innerHTML = '';
+	for (var i = 0; i < products.length; i ++) {
+		if(products[i].category_id === 3){
+			// products[i].classList.add('winter');
+			var discount = products[i].price * 0.15;
+			var salePrice = products[i].price - discount;
+			salePrice = salePrice.toFixed(2);
+			console.log("sale price", salePrice);
+			addSalePrice(salePrice, products[i].id);
+		}
+	}
+}
 	
 // console.log(salePrice);
 
 // function winterString () {
 // 	for (var j = 0; j < products.length; j ++) {
 // 		if(products[j].category_id === 1){
-// 		var saleString = '';
-// 		saleString +=	`<h3 class="sale">Sale Price:${salePrice[j]}</h3>`;
+// 			addToProduct();
 // 		}
-// 		addToProduct(saleString);
+		
 // 	}
 // }
-
-// function addToProduct (strang){
-// 	salePrice.innerHTML = strang;
-// }
-
 
 
 
