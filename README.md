@@ -5,9 +5,7 @@
 
 ## Requirements
 
-You work as a developer for a big box store. Here is a JSON representation of a small sample of the products you sell.
-
-Your job is to build a web page that lists all of the products, the name of the department it's in, and the price. Additionally, put a `<select>` element at the top of the page that contains all possible values of the `season_discount` key in the categories file. 
+You work as a developer for a big box store. Your job is to build a web page that lists all of the products, the name of the department it's in, and the price. Additionally, put a `<select>` element at the top of the page that contains all possible values of the `season_discount` key in the categories file. 
 
 ![input alt tag](./img/seasonalSales.png)
 
